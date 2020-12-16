@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.newbee.homework.entity.FillInBlank">
+    <insert id="addFillInBlank" parameterType="FillInBlank">
+        insert into fillInBlank
+        values (#{id}, #{videoId}, #{question}, #{answer})
+    </insert>
+
+    <delete id="deleteFillInBlankById" parameterType="_int">
+        delete from fillInBlank where id = #{id}
+    </delete>
+
+    <select id="getFillInBlankById" parameterType="_int" resultType="FillInBlank">
+        select * from fillInBlank where id= #{id}
+    </select>
+
+    <update id="updateFillInBlank" parameterType="FillInBlank">
+        update fillInBlank set videoId=#{videoId}, question = #{question}, answer=#{answer}
+        where id=#{id}
+    </update>
+
+    <select id="getFillInBlankByVideoId" parameterType="_int" resultType="FillInBlank">
+        select * from fillInBlank where videoId=#{videoId}
+    </select>
+</mapper>

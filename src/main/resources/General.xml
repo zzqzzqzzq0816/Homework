@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newbee.homework.entity.General">
+    <insert id="addGeneral" parameterType="General">
+        insert into generals
+        values (#{id}, #{videoId}, #{question}, #{answer})
+    </insert>
+
+    <delete id="deleteGeneralById" parameterType="_int">
+        delete from generals where id = #{id}
+    </delete>
+
+    <select id="getGeneralById" parameterType="_int" resultType="General">
+        select * from generals where id= #{id}
+    </select>
+
+    <update id="updateGeneral" parameterType="General">
+        update generals set videoId=#{videoId}, question = #{question}, answer=#{answer}
+        where id=#{id}
+    </update>
+
+    <select id="getGeneralByVideoId" parameterType="_int" resultType="General">
+        select * from generals where videoId=#{videoId}
+    </select>
+</mapper>

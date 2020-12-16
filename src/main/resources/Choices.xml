@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.newbee.homework.entity.Choices">
+    <insert id="addChoices" parameterType="Choices">
+        insert into choices
+        values (#{id}, #{videoId}, #{question}, #{choiceA}, #{choiceB},
+        #{choiceC}, #{choiceD}, #{answer})
+    </insert>
+
+    <delete id="deleteChoicesById" parameterType="_int">
+        delete from choices where id = #{id}
+    </delete>
+
+    <select id="getChoicesById" parameterType="_int" resultType="Choices">
+        select * from choices where id= #{id}
+    </select>
+
+    <update id="updateChoices" parameterType="Choices">
+        update choices set videoId=#{videoId}, question = #{question}, choiceA=#{choiceA},
+        choiceB=#{choiceB}, choiceC=#{choiceC}, choiceD=#{choiceD}, answer=#{answer}
+        where id=#{id}
+    </update>
+
+    <select id="getChoicesByVideoId" parameterType="_int" resultType="Choices">
+        select * from choices where videoId=#{videoId}
+    </select>
+</mapper>
