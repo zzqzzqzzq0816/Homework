@@ -1,23 +1,19 @@
 package com.newbee.homework.entity;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.sql.Timestamp;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class FillInBlank {
-    private int id;
-    private int videoId;
-    private String topic;
-    private int times;
+@NoArgsConstructor
+public class Student {
+    private int sid;
+    private int qid;
+    private String answer;
     private String picPath;
     private String filePath;
-    private Timestamp deadline;
-    private String question;
-    private String answer;
-
+    private Timestamp commitTime;
+    private String  score;
+    private String teacherAdvice;
 }

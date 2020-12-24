@@ -2,7 +2,8 @@ package com.newbee.homework.Impl;
 
 import com.newbee.homework.Imp.IGeneralService;
 import com.newbee.homework.entity.General;
-import com.newbee.homework.other.SqlSessionFactoryUtil;
+import com.newbee.homework.tools.MyRequestUtil;
+import com.newbee.homework.tools.SqlSessionFactoryUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class GeneralServiceImpl implements IGeneralService {
 
     @Override
     public Boolean addGeneral(HttpServletRequest request) {
-        General general = General.ReqToGeneral(request);
+        General general = MyRequestUtil.ReqToGeneral(request);
         session.insert("addGeneral", general);
         session.commit();
         return true;
@@ -40,7 +41,7 @@ public class GeneralServiceImpl implements IGeneralService {
 
     @Override
     public Boolean updateGeneral(HttpServletRequest request) {
-        General general = General.ReqToGeneral(request);
+        General general = MyRequestUtil.ReqToGeneral(request);
         session.update("updateGeneral", general);
         session.commit();
         return true;

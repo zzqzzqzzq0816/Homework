@@ -2,11 +2,16 @@ package com.newbee.homework.Impl;
 
 import com.newbee.homework.Imp.IChoicesService;
 import com.newbee.homework.entity.Choices;
-import com.newbee.homework.other.SqlSessionFactoryUtil;
+import com.newbee.homework.tools.MyRequestUtil;
+import com.newbee.homework.tools.OSSService;
+import com.newbee.homework.tools.SqlSessionFactoryUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service("ChoicesService")
@@ -33,7 +38,7 @@ public class ChoicesServiceImpl implements IChoicesService {
 
     @Override
     public Boolean addChoices(HttpServletRequest request) {
-        Choices choices = Choices.ReqToChoices(request);
+        Choices choices = MyRequestUtil.ReqToChoices(request);
         session.insert("addChoices", choices);
         session.commit();
         return true;
@@ -41,7 +46,7 @@ public class ChoicesServiceImpl implements IChoicesService {
 
     @Override
     public Boolean updateChoices(HttpServletRequest request) {
-        Choices choices = Choices.ReqToChoices(request);
+        Choices choices = MyRequestUtil.ReqToChoices(request);
         session.update("updateChoices", choices);
         session.commit();
         return true;

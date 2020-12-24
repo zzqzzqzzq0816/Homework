@@ -1,11 +1,10 @@
 package com.newbee.homework.entity;
 
-import com.newbee.homework.other.MyRequestUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
 
 @AllArgsConstructor
 @Data
@@ -13,10 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 public class General {
     private int id;
     private int videoId;
+    private String topic;
+    private int times;
+    private String picPath;
+    private String filePath;
+    private Timestamp deadline;
     private String question;
     private String answer;
-
-    public static General ReqToGeneral(HttpServletRequest request) {
-        return MyRequestUtil.getParameterObject(request, General.class);
-    }
 }

@@ -5,7 +5,7 @@
 <mapper namespace="com.newbee.homework.entity.General">
     <insert id="addGeneral" parameterType="General">
         insert into generals
-        values (#{id}, #{videoId}, #{question}, #{answer})
+        values (#{id}, #{videoId}, #{topic}, #{times}, #{picPath}, #{filePath}, #{deadline}, #{question}, #{answer})
     </insert>
 
     <delete id="deleteGeneralById" parameterType="_int">
@@ -17,7 +17,9 @@
     </select>
 
     <update id="updateGeneral" parameterType="General">
-        update generals set videoId=#{videoId}, question = #{question}, answer=#{answer}
+        update generals set videoId=#{videoId}, topic=#{topic}, times=#{times},
+        picPath=#{picPath}, filePath=#{filePath}, deadline=#{deadline},
+        question = #{question}, answer=#{answer}
         where id=#{id}
     </update>
 

@@ -2,7 +2,8 @@ package com.newbee.homework.Impl;
 
 import com.newbee.homework.Imp.IFillInBlankService;
 import com.newbee.homework.entity.FillInBlank;
-import com.newbee.homework.other.SqlSessionFactoryUtil;
+import com.newbee.homework.tools.MyRequestUtil;
+import com.newbee.homework.tools.SqlSessionFactoryUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class FillInBlankServiceImpl implements IFillInBlankService {
 
     @Override
     public Boolean addFillInBlank(HttpServletRequest request) {
-        FillInBlank fillInBlank = FillInBlank.ReqToFillInBlank(request);
+        FillInBlank fillInBlank = MyRequestUtil.ReqToFillInBlank(request);
         session.insert("addFillInBlank", fillInBlank);
         session.commit();
         return true;
@@ -40,7 +41,7 @@ public class FillInBlankServiceImpl implements IFillInBlankService {
 
     @Override
     public Boolean updateFillInBlank(HttpServletRequest request) {
-        FillInBlank fillInBlank = FillInBlank.ReqToFillInBlank(request);
+        FillInBlank fillInBlank = MyRequestUtil.ReqToFillInBlank(request);
         session.update("updateFillInBlank", fillInBlank);
         session.commit();
         return true;

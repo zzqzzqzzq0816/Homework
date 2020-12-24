@@ -23,6 +23,7 @@
         <mapper resource="Choices.xml"/>
         <mapper resource="FillInBlank.xml"/>
         <mapper resource="General.xml"/>
+        <mapper resource="Student.xml"/>
     </mappers>
 
 </configuration>

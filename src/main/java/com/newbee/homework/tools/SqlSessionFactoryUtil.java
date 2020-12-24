@@ -1,4 +1,4 @@
-package com.newbee.homework.other;
+package com.newbee.homework.tools;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

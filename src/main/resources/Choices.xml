@@ -6,7 +6,7 @@
 <mapper namespace="com.newbee.homework.entity.Choices">
     <insert id="addChoices" parameterType="Choices">
         insert into choices
-        values (#{id}, #{videoId}, #{question}, #{choiceA}, #{choiceB},
+        values (#{id}, #{videoId}, #{topic}, #{times}, #{picPath}, #{filePath}, #{deadline}, #{question}, #{choiceA}, #{choiceB},
         #{choiceC}, #{choiceD}, #{answer})
     </insert>
 
@@ -19,7 +19,8 @@
     </select>
 
     <update id="updateChoices" parameterType="Choices">
-        update choices set videoId=#{videoId}, question = #{question}, choiceA=#{choiceA},
+        update choices set videoId=#{videoId}, topic=#{topic}, times=#{times}, picPath=#{picPath},
+        filePath=#{filePath}, deadline=#{deadline}, question = #{question}, choiceA=#{choiceA},
         choiceB=#{choiceB}, choiceC=#{choiceC}, choiceD=#{choiceD}, answer=#{answer}
         where id=#{id}
     </update>
